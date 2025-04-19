@@ -1,1 +1,1 @@
-# STIG-Implementations
+# STIG Implementations
