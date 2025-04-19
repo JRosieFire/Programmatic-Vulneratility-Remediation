@@ -44,4 +44,5 @@ if (-not $currentSize -or $currentSize -lt $minSizeKB) {
     Write-Output "Set Security event log MaxSize to $minSizeKB KB."  
 } else {  
     Write-Output "Security event log MaxSize is already configured to $currentSize KB or greater."  
+    }
 }  
