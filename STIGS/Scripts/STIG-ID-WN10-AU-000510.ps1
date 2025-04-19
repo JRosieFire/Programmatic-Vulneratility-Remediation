@@ -1,3 +1,30 @@
+<#
+.SYNOPSIS
+    This PowerShell script ensures that the maximum size of the Windows System event log is at least 32768 KB (33 MB).
+
+.NOTES
+    Author          : Jill C
+    LinkedIn        : 
+    GitHub          : 
+    Date Created    : 2025-04-19
+    Last Modified   : 2025-04-19
+    Version         : 1.0
+    CVEs            : N/A
+    Plugin IDs      : N/A
+    STIG-ID         : WN10-AU-000510
+
+.TESTED ON
+    Date(s) Tested  : 
+    Tested By       : 
+    Systems Tested  : 
+    PowerShell Ver. : 
+
+.USAGE
+    Put any usage instructions here.
+    Example syntax:
+    PS C:\> .\__remediation_template(STIG-ID-WN10-AU-000500).ps1 
+#>
+
 # Define the registry path and value details  
 $regPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\System"  
 $valueName = "MaxSize"  
@@ -17,4 +44,4 @@ if (-not $currentSize -or $currentSize -lt $minSizeKB) {
     Write-Output "Set System event log MaxSize to $minSizeKB KB."  
 } else {  
     Write-Output "System event log MaxSize is already configured to $currentSize KB or greater." 
-	}
+}
