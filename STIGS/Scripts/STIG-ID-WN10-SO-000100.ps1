@@ -39,7 +39,7 @@ function Set-WN10-SO-000100 {
 	# Get current Value if exists  
 	$currentSize = (Get-ItemProperty -Path $regPath -Name $valueName -ErrorAction SilentlyContinue).$valueName  
 
-	# Check if current size is less than required and set it if needed  
+	# Check if current size exists t or if it is not set to the size value 
 	if (-not $currentSize -or $currentSize -ne $sizeValue ) {  
 		Set-ItemProperty -Path $regPath -Name $valueName -Value $sizeValue -Type $valueType  
 		Write-Output "Set $valueName in $regPath to $sizeValue."  
