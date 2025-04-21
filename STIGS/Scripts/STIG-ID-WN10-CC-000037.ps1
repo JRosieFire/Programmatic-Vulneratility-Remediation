@@ -39,7 +39,7 @@ function Set-STIGWN10-CC-000037 {
 	# Get current Value if exists  
 	$currentSize = (Get-ItemProperty -Path $regPath -Name $valueName -ErrorAction SilentlyContinue).$valueName  
 
-	# Check if current size is less than required and set it if needed  
+	# Check if current size does not exist or is not 0
 	if ($currentSize -eq $null -or $currentSize -ne $sizeValue ) {  
 		Set-ItemProperty -Path $regPath -Name $valueName -Value $sizeValue -Type $valueType  
 		Write-Output "Set $valueName in $regPath to $sizeValue."  
