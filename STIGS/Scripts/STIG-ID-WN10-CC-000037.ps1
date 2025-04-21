@@ -8,7 +8,7 @@
     GitHub          : 
     Date Created    : 2025-04-19
     Last Modified   : 2025-04-19
-    Version         : 1.0
+    Version         : 2.0
     CVEs            : N/A
     Plugin IDs      : N/A
     STIG-ID         : WN10-CC-000037
@@ -40,7 +40,7 @@ function Set-STIGWN10-CC-000037 {
 	$currentSize = (Get-ItemProperty -Path $regPath -Name $valueName -ErrorAction SilentlyContinue).$valueName  
 
 	# Check if current size is less than required and set it if needed  
-	if (-not $currentSize -or $currentSize -ne $sizeValue ) {  
+	if ($currentSize -eq $null -or $currentSize -ne $sizeValue ) {  
 		Set-ItemProperty -Path $regPath -Name $valueName -Value $sizeValue -Type $valueType  
 		Write-Output "Set $valueName in $regPath to $sizeValue."  
 	} else {  
